@@ -21,7 +21,7 @@ Tohle není tutorial, jak naprogramovat ESP32. Není to návod, jak postavit sol
 Během 24 hodin jsem prošel od fyzických součástek na stole k ucelenému plánu, identifikaci skrytých blokátorů a objednávce chybějících komponent. Celý proces byl zaznamenán jako série promptů a odpovědí – z toho vznikl tento dokument.
 
 **Cílové skupiny:**
-- **Já (operátor)** – jako znalostní báze pro příští podobné projekty
+- **Autor** – jako znalostní báze pro příští podobné projekty
 - **Zvídaví čtenáři** – kteří chtějí vidět, jak někdo reálně pracuje s LLM na technickém projektu
 - **Začátečníci v IoT** – kteří hledají strukturu, ne jen kód
 - **Uživatelé LLM** – kteří chtějí posunout svou práci z "zeptám se a zkopíruji" na metodickou
