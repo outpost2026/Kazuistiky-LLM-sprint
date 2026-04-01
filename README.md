@@ -8,22 +8,27 @@ Tento repozitář dokumentuje 40denní sprint, ve kterém vývojář, osoba jako
 
 Cílem tohoto dokumentu není popsat vývojáře. Je popsat *metody* – konkrétně které přístupy fungovaly, které selhaly a co o tom říkají data.
 
-## Co bylo postaveno
+
+---
+
+
+## Co tato případová studie zkoumá
+
+1. Jak byly LLM nástroje používány, které konkrétní postupy produkovaly spolehlivý výstup vs. které způsobovaly regrese - **[kazuistika Gemini překlad](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/main/Kazuistika_Gemini_preklad.md)**
+3. Jakou roli hrály předchozí ne-softwarové zkušenosti v urychlení adopce - **[Kód, který už dávno znáte](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/main/block_05_transfer_learning_cz.md)**
+4. Příběh o tom, jak automatizace přestává být jen nástrojem a stává se generátorem reálných zdrojů - **[Můj kód je lepší nákupčí než já: Jak mi Python sehnal Dell za 2 000 Kč](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/main/block_04_case_self_bootstrapping_cz.md)**
+
+
+## Co bylo dosaženo
 
 - ETL scraping pipeline nasazené na GCP Cloud Run s Cloud Scheduler
 - Ingest meteorologických dat z ČHMÚ
 - Off-grid solární telemetrická pipeline: BMS data, LAZ LiDAR geodata, pvlib solární modelování
-- RAG-ready indexer dokumentů se sémantickou klasifikací (tento repozitář)
 - Telegram notifikace pro všechny výstupy pipeline
+
 
 Všechny systémy běží 24/7 s téměř nulovými náklady na serverless infrastruktuře.
 
-## Co tato případová studie zkoumá
-
-1. Jak byly LLM nástroje používány – a zneužívány – během sprintu
-2. Které konkrétní postupy produkovaly spolehlivý výstup vs. které způsobovaly regrese - **[kazuistika Gemini překlad](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/main/Kazuistika_Gemini_preklad.md)**
-3. Jakou roli hrály předchozí ne-softwarové zkušenosti v urychlení adopce
-4. Naměřený čas do kompetence v 6 technologických doménách
 
 ## Pro koho to je
 
