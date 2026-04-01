@@ -1,14 +1,6 @@
 # Metodika řešení málo známé problematiky s LLM
 
-## Případová studie: IoT perimetr pro off-grid autonomní uzel "Outpost 2026"
-
----
-
-**Autor:** Ondřej Soušek  
-**Repozitář:** [github.com/outpost2026](https://github.com/outpost2026)  
-**Datum:** 2026-03-26  
-**Verze:** 1.0  
-**Licence:** CC BY-SA 4.0
+### Případová studie: IoT perimetr pro off-grid autonomní uzel "Outpost 2026"
 
 ---
 
@@ -67,7 +59,7 @@ Off-grid systém (vývojový uzel "Outpost"):
 | Baterie | LiFePO4 630 Ah / 16 kWh |
 | Střídač | POW-HVM3.2H-24V (3200 W) |
 | BMS | JK-PB2A16S20P V19 |
-| Lokace | Praha 8 |
+| Lokace | Praha |
 
 ### Cíl projektu
 
@@ -77,7 +69,7 @@ Implementovat IoT vrstvu pro:
 3. **Ochranu baterie** – teplotní alarm, zákaz nabíjení pod 0 °C
 4. **Vzdálený monitoring** – GCP cloud, Telegram notifikace
 
-### Výchozí stav (25. 3. 2026)
+### Výchozí stav
 
 - **Laskakit BOM** – fyzicky na stole (ESP32, ESP8266, senzory, MAX3232)
 - **BMS** – JK s GPS konektorem, ale bez kabelu
