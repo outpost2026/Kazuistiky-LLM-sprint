@@ -4,7 +4,7 @@ Tato branch dokumentuje **správu, provoz a evoluci GCP portfolia** projektu Pra
 
 ## 🗂️ Obsah
 
-- **gcp_stack_ingest_v3.md** – živý snapshot GCP projektu (stav 2026-03-14)
+- **[gcp_stack_ingest_v3.md](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/GCP/gcp_stack_ingest_v3.md)** – živý snapshot GCP projektu (stav 2026-03-14)
 
   Popisuje kompletní serverless-first architekturu: Cloud Run, Functions, Scheduler, Firestore, BigQuery, meteo pipeline, VM (legacy), buckety a service accounts.  
   → Slouží jako **zdroj pravdy** pro GCP nastavení a rozhodnutí.
@@ -16,7 +16,7 @@ Tato branch dokumentuje **správu, provoz a evoluci GCP portfolia** projektu Pra
 - **Projekt:** `PrahaScrapersV1` (`project-4ac30110-41b1-4783-a5d`)
 - **Primární region:** `europe-west1`
 - **Architektura:** serverless-first (Cloud Run/Functions), VM pouze pro legacy ETL
-- **Hlavní komponenty:** miner-orchestrator, chmu-meteo-miner, iot-ingest-beta, Firestore, Scheduler (6 jobů vč. meteo)
+- **Hlavní komponenty:** [miner-orchestrator](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/GCP/transfer_dump_main.py), [chmu-meteo-miner](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/GCP/transfer_dump_meteo_miner.py), iot-ingest-beta, Firestore, Scheduler (6 jobů vč. meteo)
 
 ## 🔍 Pro koho je tato branch
 
