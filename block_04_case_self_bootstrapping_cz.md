@@ -22,10 +22,15 @@ Celý tento kruh se uzavřel za necelé dva dny od spuštění.
 
 Na začátku stála jednoduchá potřeba: levně sehnat materiál na stavbu off-grid dílny. Místo ručního prohledávání inzerátů vznikl automatický „slídil“ (scraper), který hlídal [Bazoš.cz](http://bazos.cz).
 
+### Scraper 
+- samotný těžební slídil na notebooky - [deepdive_scraper_notebooky](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/main/transfer_dump_notebook_deepdive.py)
+- co jej odlišuje od pouhého automatizovaného sbírání dat? Uplatnění relativně mohutné **Boolean logiky** v parseru. Pak hledá alpha leady, ne odpad.
+
+
 **Technické pozadí (zjednodušeně):**
 
 -   Každých 6 hodin se v cloudu probudil skript.
--   Prohledal inzeráty a pomocí klíčových slov vybral ty zajímavé.
+-   Prohledal inzeráty a pomocí klíčových slov vybral ty zajímavé. 
 -   Pokud něco našel, poslal okamžitě zprávu na Telegram.
 -   Modifikace produkčního “slídila” z těžby materiálů na nové téma - kvalitní notebooky za hubičku
 
