@@ -61,7 +61,8 @@ Zde je nutné pojmenovat věc přímo.
 
 Existuje psychologický konstrukt zvaný **fluidní inteligence (Gf)** — schopnost řešit nové problémy bez spoléhání se na naučené znalosti. Je to opak **krystalizované inteligence (Gc)**, která zahrnuje paměť, syntaxi a naučená fakta.
 
-Cattell-Horn-Carrollova (CHC) teorie — v současné kognitivní psychologii nejkomplexnější hierarchický model struktury inteligence — předpovídá, že v prostředí, kde AI přebírá Gc, roste relativní hodnota Gf. Tato kazuistika je konzistentní s touto předpovědí. Empiricky: Gf vykazuje statisticky signifikantní pozitivní korelaci s výší příjmů (β = 0.09; korigované p = 0.013), zatímco Gc tuto korelaci v podmínkách AI-saturovaného trhu ztrácí na relevanci jako prediktivní proměnná pro mzdovou prémii.
+Cattell-Horn-Carrollova (CHC) teorie — v současné kognitivní psychologii nejkomplexnější hierarchický model struktury inteligence
+- předpovídá, že v prostředí, kde AI přebírá krystalickou složku inteligence, roste relativní hodnota její fluidní části . Tato kazuistika je konzistentní s touto předpovědí. Empiricky: Fluidní inteligence vykazuje statisticky signifikantní pozitivní korelaci s výší příjmů (β = 0.09; korigované p = 0.013), zatímco krystalická i. tuto korelaci v podmínkách AI-saturovaného trhu ztrácí jako prediktivní proměnná pro mzdovou prémii.
 
 **Je ale nutné říct, co o tom víme a co nevíme.**
 
@@ -70,7 +71,7 @@ Cattell-Horn-Carrollova (CHC) teorie — v současné kognitivní psychologii ne
 
 Pozorovatelné chování, které hypotézu podporuje:
 *   Přenos diagnostického vzorce z CNC (symptom → mechanismus → minimální oprava) přímo do LLM debuggingu bez explicitního "učení" tohoto přístupu.
-*   Přenos tolerančního myšlení (±0.05 mm = výmět) do datové validace (±0.75 °C = flag).
+*   Přenos tolerančního myšlení do datové validace (±0.75 °C = flag).
 *   Rýchlá orientace v nových doménách bez memorování základů.
 
 Tato chování jsou popsatelná a čtenář může posoudit, zda je rozpoznává u sebe. Psychometrický konstrukt Gf k tomu není nutný.
@@ -108,27 +109,28 @@ Vše zdokumentováno v pitevní knize (70+ záznamů), dostupné na GitHubu.
 Zadání: identifikujte chybu v 5řádkovém code snippetu.
 *Chování autora:* Místo snahy o uhodnutí odpovědi okamžité přiznání limitu — *"Tohle si standardně vyhledám nebo nechám vygenerovat LLM. Pokud je toto podmínka přijetí, chci to vědět hned, abych neplýtval vaším časem."* Programátor odpověděl, že to nevadí, a přešel na druhou část.
 
-**Vstupní test — část 2:**
+**Vstupní test — část 2 (návrh automatizace):** 
 Zadání (zkráceně): navrhněte systém, který z CSV/XML od dodavatelů automaticky určí celní kategorii (CN/HS) a tím i DPH; zamyslete se nad cenou a rychlostí.
-*Odpověď autora* (psáno ručně, přes hranice vyhrazeného boxu):
+*Odpověď autora* (psáno ručně, přes hranice vyhrazeného boxu na papíře, doslova out of the box):
 *   Raw data → sémantická analýza + korelace s CN/HS nomenklaturou → klasifikační skript
 *   Validace: ingest → parsování → ruční kontrola vzorku → verzování
 *   Výstup: JSON/CSV dle potřeby
 *   Korekce: logy, post-mortem běhy, diferenční analýzy → ladění → finální výstup
+   >Data Engineering Pipeline - Zahrnutí logů, post-mortem analýz a verzování mohlo ukázat programátorovi, že není myšleno jen na to "aby to běželo", ale aby to bylo udržitelné v produkci.
 
-*Chyběly:* confidence threshold, odhad nákladů, konkrétní technika klasifikace. Tyto mezery firma zaregistrovala a zmínila je v závěrečné zpětné vazbě.
+*Chyběly:* confidence threshold, odhad nákladů, konkrétní technika klasifikace.
 
 **Průběh pohovoru:**
 Po vyhodnocení testu programátor přizval majitele firmy. Konverzace přešla na téma reálné automatizace firemních procesů. Autor popsal meteo pipeline v logice: `raw → parsing → korelace → predikce → validace výstupu → produkce`. Diskuze se posunula z testování paměti na architektonickou konzultaci.
 
-*   *Zpětná vazba programátora:* "Velmi příjemný, ihned jste mě zaujal. Oblast transfer learningu byla zajímavá, chtěl jsem se dozvědět víc."
+*   *Zpětná vazba programátora:* "Velmi příjemný, rychle jste mě zaujal. Oblast transfer learningu byla zajímavá, o tom bych se rád dozvěděl více."
 *   *Zpětná vazba majitele:* "Evidentně se rychle učíte, jste schopen adaptace. Z profilu je však zřejmá vaše potřeba autonomie a samostatnosti. Ve firmě potřebujeme lidi, kteří věci dotahují do konce a jsou schopni komunikace s týmem. To jsou věci, které o vás nevím a nelze je nyní posoudit."
 
 **Výsledek:** Nabídka placeného testu — firma zadá reálný automatizační problém a zaplatí za jeho řešení v rámci výběrového řízení.
 
 ### Proč to fungovalo
 
-1.  **Přenos vzorců přes domény.** CNC diagnostika (symptom → mechanismus → minimální oprava) se přímo zobrazila na architektuře ETL pipeline i na přístupu k debuggingu. Toto přenesení nebylo vědomou strategií — bylo to přirozené chování pro člověka, jehož defaultní mód je "povrch → mechanismus → struktura → implikace."
+1.  **Přenos vzorců přes domény.** Vlastní budovaný off-grid uzel (LFP, BMS, FV energetika, vše DIY), CNC diagnostika (symptom → mechanismus → minimální oprava), zkušenosti z vývojem vlastních skriptů pro autorovo použití, vše se přímo zobrazilo na architektuře ETL pipeline i na přístupu k debuggingu. Toto přenesení nebylo vědomou strategií — bylo to přirozené chování pro člověka, jehož defaultní mód je "povrch → mechanismus → struktura → implikace."
 2.  **Artefakty jako důkaz.** GitHub repozitáře s `requirements.txt`, měřitelnými výstupy (predikce SOC ±5 %) a dokumentací rozhodnutí. Firma si repozitáře prohlédla před pohovorem. Autor na ně odkázal v závěru pohovoru; programátor potvrdil, že se díval.
 3.  **Diagnostická kultura.** 70+ záznamů v pitevní knize znamená, že každá chyba byla data, ne selhání. Tento přístup je přímo přenositelný na týmovou práci: dokumentovaný failure mode je sdílitelné know-how, ne osobní ostuda. Inspirace pochází z NASA a Google SRE kultury *blameless post-mortem* — principu, kde chyby nejsou příčinou trestu, ale surovinou pro systémové zlepšení. V tomto přístupu lze vidět praktickou aplikaci *double-loop learningu* (Argyris, Schön): oprava konkrétní chyby je single-loop; přehodnocení celé metodiky na základě vzorce chyb je double-loop. Deník se 70+ záznamy je nástrojem druhé smyčky.
 4.  **Sociální přesnost.** Proaktivní přiznání limitu u části 1 místo improvizace zachránilo čas a vybudovalo důvěru. Závěrečný dotaz "jaký dojem jsem udělal?" byl neobvyklý, ale výsledkem byla přímá, hodnotná zpětná vazba — informace, kterou většina kandidátů nikdy nedostane.
