@@ -95,13 +95,13 @@ Tato chování jsou popsatelná a čtenář může posoudit, zda je rozpoznává
 
 ### Co vzniklo za 45 dní
 
-*   **Produkční GCP stack:** Cloud Run, Cloud Scheduler, GCS, Firestore, Telegram delivery. Čtyři aktivní služby, šest scheduler jobů, vše serverless, provozní náklady blízko nule.
-*   **Meteorologická ETL pipeline:** Sběr dat z ČHMÚ Praha-Kbely, diferenciální zápis do GCS, cross-validace s Open-Meteo (delta < ±0.75 °C).
-*   **Predikce stavu baterie (SOC):** Vstup: BMS log LFP baterie + meteo data s horizon masking z LiDAR transformace. Výstup: predikce na 5 dní, odchylka ±5 % oproti pozorované kapacitě.
-*   **Sémantický RAG indexer:** Klasifikace lokálních dokumentů do 18 typů, kaskádové dekódování (UTF-8 / CP1250 / ISO-8859-2), produkce strukturovaného JSON manifestu.
-*   **CAD-to-LLM pipeline:** SketchUp → COLLADA → deterministický JSON pro prostorovou analýzu LLM. Testováno na 30 uzlech (Outpost Zone 2), 0 % nekonzistencí.
+*   **[Produkční GCP stack](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/GCP/gcp_stack_ingest_v3.md):** Cloud Run, Cloud Scheduler, GCS, Firestore, Telegram delivery. Čtyři aktivní služby, šest scheduler jobů, vše serverless, provozní náklady blízko nule.
+*   **[Těžební ETL pipeline](https://github.com/outpost2026/Kazuistiky-LLM-sprint/tree/GCP):** Automatické těžební python scrapery umístěné na google cloud service, vyhledávají zájmové inzeráty (bazos, prace.cz, jobs.cz a další), filtrují dle boolean logiky a vytříděné výsledky - alfa leady - odesílají na mobilní telefon
+*   **[Predikce stavu baterie (SOC)](https://github.com/outpost2026/Kazuistiky-LLM-sprint/tree/LFP_soc_predict_pipeline):** Vstup: BMS log LFP baterie + meteo data s horizon masking z LiDAR transformace. Výstup: predikce na 5 dní, odchylka ±5 % oproti pozorované kapacitě.
+*   **[Sémantický RAG indexer](https://github.com/outpost2026/RAG-indexer):** Klasifikace lokálních dokumentů do 18 typů, kaskádové dekódování (UTF-8 / CP1250 / ISO-8859-2), produkce strukturovaného JSON manifestu.
+*   **[CAD-to-LLM pipeline](https://github.com/outpost2026/cad2llm):** SketchUp → COLLADA → deterministický JSON pro prostorovou analýzu LLM. Testováno na 30 uzlech (Outpost Zone 2), 0 % nekonzistencí.
 
-Vše zdokumentováno v pitevní knize (70+ záznamů), dostupné na GitHubu.
+Vše zdokumentováno v **[pitevní knize (70+ záznamů)](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/main/pitevni_kniha_v8.md)**, dostupné na GitHubu.
 
 ### Pohovor (2. dubna 2026, první IT pohovor v životě)
 
