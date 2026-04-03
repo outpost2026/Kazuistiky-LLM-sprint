@@ -6,9 +6,9 @@
 
 ---
 
-## Abstrakt (pro ty, kteří chtějí pointu hned)
+## Abstrakt
 
-Tento dokument popisuje reálný případ člověka, který během 45 dnů přešel z manuální profese (CNC operátor) k nabídce **placeného testu** od e-commerce firmy – na prvním IT pohovoru v životě.
+Reálný případ člověka, který během 45 dnů přešel z manuální profese (CNC operátor) k nabídce **placeného testu** od e-commerce firmy – na prvním IT pohovoru v životě.
 
 Klíčové zjištění: V roce 2026 už není paměťová znalost programovacích jazyků bariérou vstupu do IT. Tou bariérou je **schopnost systémového myšlení, rychlé abstrakce a řízení AI nástrojů**. Tato schopnost však není univerzální – vyžaduje **vysokou fluidní inteligenci (Gf)**.
 
@@ -21,7 +21,7 @@ Tento text slouží jako:
 
 ## 1. Nová realita: AI jako vyrovnávač (ale ne pro všechny)
 
-Do roku 2026 se nástroje jako GPT, Claude nebo Gemini staly běžnou součástí vývoje. Generování kódu na úrovni junior–medior je otázkou sekund.
+Do roku 2026 se nástroje jako GPT, Claude, Deepseek, Groq nebo Gemini staly běžnou součástí vývoje. Generování kódu na úrovni junior–medior je otázkou sekund.
 
 **Důsledek:** Firmy přestávají platit za syntaxi. Platí za **řešení problémů**, za **architekturu**, za **schopnost vidět strukturu v chaosu**.
 
@@ -38,9 +38,9 @@ Fluidní inteligence je schopnost řešit nové problémy bez spoléhání se na
 - Lidská přidaná hodnota zůstává v Gf (abstrakce, přenos principů, systémové vidění)
 - Bez vysoké Gf se stanete jen „operátorem AI“ – ne architektem
 
-V tomto případě byla Gf subjektu v pásmu 88–95 percentilů. To umožnilo:
+V tomto případě byla Gf subjektu výrazně vyšší než průměrná. Hodnota však neměřena, odvozena empiricky. To umožnilo:
 - Přenést principy z manuálních profesí (zahradnictví, CNC) do IT
-- Během 45 dní vystavět funkční projekty (predikce SOC baterie, GCP pipeline)
+- Během 45 dní vystavět funkční projekty (predikce SOC baterie, GCP pipeline, transformace 3D dat do sémantických struktur)
 - Na pohovoru přesměrovat diskuzi z testování paměti na architektonickou konzultaci
 
 **Bez vysoké Gf tento přístup nefunguje.** Pokud vaše síla spočívá v systematickém učení se nazpaměť, jděte tradiční cestou – není to hanba.
@@ -70,13 +70,13 @@ V tomto případě byla Gf subjektu v pásmu 88–95 percentilů. To umožnilo:
 Místo snahy o uhodnutí syntaxe asertivně prohlásil: „Tohle si normálně vyhledám nebo nechám vygenerovat AI. Moje hodnota není v paměťových znalostech, ale v návrhu systému.“
 
 **Reakce firmy:**  
-Tazatel (majitel) nejprve zarazilo, pak začali řešit reálný problém – automatizaci DPH z chaotických CSV. Subjekt navrhl robustní pipeline (validace → transformace → korekční smyčka). Diskuze se posunula z testování na konzultaci.
+Hlavní vývojový programátor vedoucí první část pohovoru byl nejprve lehce překvapen (šlo o pozici programátora), poté však začali řešit reálný problém – automatizaci DPH z chaotických CSV. Subjekt navrhl robustní pipeline (validace → transformace → korekční smyčka). Diskuze se posunula z testování na konzultaci.
 
 **Výsledek:**  
 Nabídka **placeného testu** – firma chce ověřit řešení na reálném problému. Pro juniora na prvním pohovoru výjimečný výsledek.
 
 ### Proč to fungovalo (hlubší analýza)
-- **Přenesení Gf z jiných domén** – principy z agronomie (vstupy/výstupy, latence) a CNC (diagnostika, tolerance) se přímo zobrazily na IT pipeline
+- **Přenesení Gf z jiných domén** – principy z předchozích zaměstnání, včetně "štěků" (vstupy/výstupy, latence) a CNC (diagnostika, tolerance) se přímo zobrazily na IT pipeline
 - **Energetický inkubátor** – manuální profese nespálily kognitivní kapacitu na byrokracii; subjekt měl přebytek energie pro učení
 - **Artefakty jako důkaz** – GitHub repozitáře s `requirements.txt`, měřitelnými výstupy (predikce SOC ±5%) a dokumentací
 - **Sociální inteligence** – proaktivní e-mail, který pojmenoval obavu firmy z jeho autonomie a ujistil je o schopnosti týmové práce
