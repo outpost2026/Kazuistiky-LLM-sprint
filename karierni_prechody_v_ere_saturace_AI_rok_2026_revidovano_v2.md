@@ -1,6 +1,6 @@
 # Kariérní přechody v éře saturace AI (2026)
 
-## Případová studie a přenositelný návod
+## Případová studie
 
 **Jak uspět na prvním IT pohovoru bez IT školy, bez praxe a s vědomím, že AI umí kód za vás.**
 
