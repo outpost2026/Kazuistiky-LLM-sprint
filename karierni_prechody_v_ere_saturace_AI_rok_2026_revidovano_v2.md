@@ -248,20 +248,21 @@ Pro úplnost je nutné pojmenovat strukturální podmínky, které výsledek kaz
 Tato literatura slouží jako inspirační a věcné zázemí. Část byla přímo relevantní pro interpretační rámce použité v textu, část rozšiřuje kontext pro čtenáře, kteří chtějí hlouběji porozumět konceptům, na které text narážel.
 
 **Psychologie inteligence a kognitivní vědy:**
-*   **Cattell, R. B.** — Teorie fluidní a krystalizované inteligence (Gf/Gc); základ pro interpretační rámec použitý v sekci 2.
+*   **Cattell, R. B.** — [Teorie fluidní a krystalizované inteligence (Gf/Gc)](https://www.youtube.com/watch?v=7wxjMYkbyl0), základ pro interpretační rámec použitý v sekci 2.
+
 *   **Carroll, J. B.** — Three Stratum Theory; rozšíření Cattellova modelu do hierarchické CHC struktury.
 *   **Horn, J. L.** — empirická práce na oddělení Gf a Gc jako měřitelných konstruktů.
 
 **Systémové myšlení a organizační učení:**
 *   **Argyris, C. & Schön, D.** — Double-loop learning; rámec pro pochopení rozdílu mezi opravou chyby a přehodnocením systému, který chyby produkuje.
-*   **Csikszentmihalyi, M.** — Flow; optimální poměr výzvy a kapacity, relevantní pro sprint v podmínkách nejistoty.
+*   **Csikszentmihalyi, M.** — [Flow](https://www.youtube.com/watch?v=TzPky5Xe1-s); optimální poměr výzvy a kapacity, relevantní pro sprint v podmínkách nejistoty.
 
 **Spolehlivost systémů a kultura post-mortem:**
 *   **Google SRE Book (Beyer et al.)** — Site Reliability Engineering; praxe blameless post-mortem jako zdroj systémového učení.
-*   **Prigogine, I.** — Teorie disipativních struktur; rámec pro pochopení jak systémy rostou v podmínkách chaosu, nikoli navzdory němu.
+*   **Prigogine, I.** — [Teorie disipativních struktur](https://www.youtube.com/watch?v=FRXH5o8iYWE); rámec pro pochopení jak systémy rostou v podmínkách chaosu, nikoli navzdory němu.
 
 **Trh práce a AI:**
-*   **Hoffman, R.** — Superagency; argument pro AI jako nástroj posílení lidské produktivity, nikoliv jejího nahrazení.
+*   **Hoffman, R.** — [Superagency](https://www.youtube.com/watch?v=PlG_qMnP0QY); argument pro AI jako nástroj posílení lidské produktivity, nikoliv jejího nahrazení.
 *   **Dokumentace k této kazuistice** — GitHub repozitář s pitevní knihou, metodikami a kódem; primární zdroj verifikovatelných artefaktů.
 
 ---
