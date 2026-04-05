@@ -55,7 +55,7 @@ Je důležité pojmenovat, co se zároveň *zvýšilo* jako bariéra vstupu.
 
 Syntaktická bariéra (znalost API, frameworků, jazyků) dramaticky poklesla. Ale zároveň vzrostla jiná bariéra: schopnost smysluplně specifikovat problém, validovat výstup LLM a rozpoznat halucinaci od správné odpovědi. AI, která generuje plausibilně znějící kód s chybou uprostřed, je nebezpečná přesně v míře, v jaké uživatel nedokáže výstup kriticky posoudit.
 
-Nadměrné spoléhání na LLM bez rozvíjení vlastního kritického myšlení vede k tomu, co výzkumníci kognitivních věd označují jako **kognitivní automatizační past (CAP)** — systematické oslabování analytických schopností, které jsou nyní nejvíce ceněné. Hrozba je reálná a přímo ohrožuje ty, kteří si myslí, že AI je zkratka k odbornosti, ale je jí zkratka jen k její iluzi.
+Nadměrné spoléhání na LLM bez rozvíjení vlastního kritického myšlení vede k tomu, co výzkumníci kognitivních věd označují jako **kognitivní automatizační past (CAP)** — systematické oslabování analytických schopností, které jsou nyní nejvíce ceněné. Hrozba je reálná a přímo ohrožuje ty, kteří si myslí, že AI je zkratka k odbornosti, ale je to zkratka k její iluzi. Pro více informaci o fenoménu CAP: ["How ChatGPT Slowly Destroys Your Brain"](https://www.youtube.com/watch?v=6sJ50Ybp44I)
 
 AI je equalizer selektivní: snižuje jednu bariéru, zatímco jiné transformuje.
 
