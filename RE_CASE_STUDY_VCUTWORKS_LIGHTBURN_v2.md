@@ -2,7 +2,6 @@
 
 **Verze:** 2.0  
 **Datum:** 12. 6. 2026  
-**Status:** Revidováno dle developera — empirická data, bez subjektivního hodnocení
 
 
 ## 1. Executive Summary
