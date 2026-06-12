@@ -328,17 +328,7 @@ Google Apps Scripty → Google Sheets pipeline a Flask REST API pro ERP.
 
 
 
-## 10. Závěrečné Zhodnocení
-
-### 10.1 Vhodnost Publikace
-
-Dokument je publikován jako **otevřená kazuistika metodologie RE**, nikoli jako technická specifikace formátu. Obsahuje empirická data doložitelná z git historie (20 commitů, 7 branchí, 0 merge konfliktů), validační výsledky (10/10 testů PASS) a chronologii vývoje.
-
-Neobsahuje proprietární detaily formátů (offsety, signatury, bitové masky).
-
-### 10.2 Empirická Data z Developer Reportu
-
-Extrahováno z `DEVELOPER\_ASSESSMENT\_PNG\_TRIMMING\_BRANCH.md` (2026-06-08):
+## 10. Závěrečné Zhodnocení & Empirická Data z Developer Reportu
 
 | Metrika | Hodnota |
 | - | - |
@@ -355,7 +345,7 @@ Extrahováno z `DEVELOPER\_ASSESSMENT\_PNG\_TRIMMING\_BRANCH.md` (2026-06-08):
 | Detekovaná porušení blacklistu | 3× (hardcoded stock rectangle) |
 
 
-### 10.3 Poučení pro Komunitu
+### 10.1 Poučení pro Komunitu
 
 1. **LightBurn DXF ≠ AutoCAD DXF.** Standardní DXF knihovny selhávají na LightBurn exportech kvůli proprietární barevné paletě. Řešením je euklidovská RGB interpolace do referenční palety.
 
