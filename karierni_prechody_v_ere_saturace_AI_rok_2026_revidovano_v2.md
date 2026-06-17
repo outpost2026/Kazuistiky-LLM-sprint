@@ -67,11 +67,6 @@ Zde je nutné pojmenovat věc přímo.
 
 Existuje psychologický konstrukt zvaný **fluidní inteligence (Gf)** — schopnost řešit nové problémy bez spoléhání se na naučené znalosti. Je to opak **krystalizované inteligence (Gc)**, která zahrnuje paměť, syntaxi a naučená fakta.
 
-Cattell-Horn-Carrollova (CHC) teorie — v současné kognitivní psychologii nejkomplexnější hierarchický model struktury inteligence
-- předpovídá, že v prostředí, kde AI přebírá krystalickou složku inteligence, roste relativní hodnota její fluidní části . Tato kazuistika je konzistentní s touto předpovědí. Empiricky: Fluidní inteligence vykazuje statisticky signifikantní pozitivní korelaci s výší příjmů (β = 0.09; korigované p = 0.013), zatímco krystalická i. tuto korelaci v podmínkách AI-saturovaného trhu ztrácí jako prediktivní proměnná pro mzdovou prémii.
-
-**Je ale nutné říct, co o tom víme a co nevíme.**
-
 *   **Co víme:** Autor během 45 dní zvládl přejít z nulové IT znalosti k funkčním produkčním systémům na GCP, IoT telemetrii, predikci stavů baterie a sémantickému indexování dokumentů. To je pozorovatelný fakt, doložitelný artefakty na GitHubu.
 *   **Co nevíme:** Zda je příčinou "vysoká Gf" v psychometrickém smyslu. Gf autora nebyla standardizovaně měřena. "Vysoká Gf" je hypotéza — interpretační rámec, který dává pozorovanému chování smysl, ale není v tomto textu verifikována. Stejné výsledky lze vysvětlit i jinými proměnnými: délkou soustředěného úsilí, existující strukturou technického myšlení z CNC prostředí, nebo kontextovou shodou — firma v tomto konkrétním momentu hledala právě tento typ profilu.
 
