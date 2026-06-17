@@ -2,6 +2,8 @@
 
 Toto nejsou pravidla vymyšlená předem. Jsou to vzorce extrahované ze 40 dnů produkčních dat – z organicky vzniklé historie verzí, post-mortem logů a analýz selhání. Každý princip vzešel z konkrétního selhání, které mu předcházelo.
 
+*Skutečné porozumění je ekvivalentem komprese: čím menší je vnitřní model reality při zachování predikční schopnosti, tím hlouběji model pochopil kauzální vazby prostředí.*
+
 ---
 
 ## Princip 1 — Kontroluj předtím, než programuješ (RAW FIRST)
