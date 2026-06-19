@@ -14,10 +14,14 @@ Co když je to ale úplně jinak?
 
 ### Mozek není logický stroj. Je to geometrický procesor.
 
-Představte si obrovskou, tisícerozměrnou mapu. Každý koncept, každá vzpomínka, každá dovednost je v ní vyjádřena jako **souřadnice**. "Červená" není slovo uložené v tabulce – je to bod v prostoru, který leží blízko "oranžové", dál od "modré", a v určitém vztahu k "rychlé", "teplé" nebo "varování".
+Představte si prostor, který nemá jen 3 rozměry (délka, šířka, výška), ale stovky či tisíce rozměrů. Každý rozměr představuje jeden aspekt reality – např. barvu, vůni, vzpomínku, význam slova nebo intenzitu emoce. 
+Představte si obrovskou, tisícerozměrnou mapu. Každý koncept, každá vzpomínka, každá dovednost je v ní vyjádřena jako **souřadnice**.
 
-Mozek není sekvenční procesor. Je to **organické GPU**, které provádí masivně paralelní geometrické transformace v tomto vícerozměrném prostoru. Každá myšlenka je trajektorie. Každá věta je křivka skrz sémantickou manifold.
+"Červená" není slovo uložené v tabulce – je to bod v prostoru, který leží blízko "oranžové", dál od "modré", a v určitém vztahu k "rychlé", "teplé" nebo "varování" V takovém prostoru mozek operuje. Každá dovednost je v ní vyjádřena jako **souřadnice**, každá myšlenka je **trajektorie**. Každá věta je **křivka**...“
 
+Když přemýšlíte, „cestujete“ touto krajinou. Myšlenka není pevný bod, ale pohyb (trajektorie) z jednoho stavu mysli do jiného. Věta, kterou vyslovíte, je pak určitá specifická stopa nebo křivka, kterou v této krajině vytyčíte, abyste myšlenku předali dál.
+
+Mozek není sekvenční procesor. Je to **organické GPU**, které provádí masivně paralelní geometrické transformace v tomto vícerozměrném prostoru.
 A tady přichází ten nejzajímavější objev: **umělé neuronové sítě dělají přesně totéž.**
 
 ### Biologie a křemík – stejný princip, jiný substrát
