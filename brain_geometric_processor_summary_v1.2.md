@@ -1,9 +1,9 @@
-# Brain as a Geometric Processor – Narrative Overview v1.2 (Bilingual Document)
+### Brain as a Geometric Processor – Narrative Overview v1.2 (Bilingual Document)
 
 
-## 📘 Česká verze – Proč váš mozek není počítač, ale geometrické GPU
+# Proč váš mozek není počítač, ale geometrické GPU
 
-**Autor:** Ondřej Soušek // SYSTEQ **Verze:** 1.2‑Narrative‑Kernel
+**Autor:** Ondřej Soušek / SYSTEQ **Verze:** 1.2‑Narrative‑Kernel
 
 
 Zastavte se na vteřinu. Právě teď váš mozek zpracovává tato písmena. Ale jak? Většina z nás si představí mozek jako takový organický počítač – něco, co logicky zpracovává vstupy a vydává výstupy. If‑else. Nula‑jednička. Von Neumann.
@@ -75,6 +75,7 @@ Pravda a inteligence nejsou uloženy v datech. Jsou v eleganci a hustotě jejich
 
 Mozek jako geometrický procesor není metafora. Je to **operační realita** – a klíč k dalšímu skoku v umělé inteligenci.
 
+---
 
 ## 📄 English version – Why your brain is not a computer, but a geometric GPU
 
