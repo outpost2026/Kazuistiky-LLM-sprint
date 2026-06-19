@@ -156,4 +156,32 @@ Truth and intelligence are not stored in data. They live in the elegance and den
 The brain as a geometric processor is not a metaphor. It is an **operational reality** – and the key to the next leap in AI.
 
 ---
-Zdroje: autor vychází zejména z prací Tomáše Mikolova, dekonstrukcí jeho metodiky (https://www.nadaceneuron.cz/person/tomas-mikolov) & vlastních prací
+## 📚 Zdroje / Sources
+
+### Primární inspirace – Tomáš Mikolov
+
+Autor vychází zejména z myšlenkového rámce Tomáše Mikolova, jeho prací o kompresi reality jako definici inteligence, limitech textově‑solipsistických LLM a nezávislosti algoritmu na substrátu. Detailní analýza těchto konceptů je k dispozici v interních materiálech:
+
+- **Mikolov\_Manifest.txt** – Epistemologie inteligence, princip komprese
+
+- **Tomas\_Mikolov\_High‑SNR\_knowhow\_komprese\_reality.txt** – High‑SNR výtah klíčových konceptů
+
+- [Nadace Neuron – profil Tomáše Mikolova](https://www.nadaceneuron.cz/person/tomas-mikolov)
+
+### Rozhovory (YouTube)
+
+- [TOMÁŠ MIKOLOV: „V Googlu mi nevěřili, že to může fungovat jinak.“](https://www.youtube.com/watch?v=B-IsBMsNIlU)
+
+- [„AI je největší projekt lidstva a Evropa ho prohrává. Chceme to změnit“](https://www.youtube.com/watch?v=EgtmBmmXLb8)
+
+- [„Kdo přežije AI revoluci a které firmy to pohřbí? Tomáš Mikolov o AI“](https://www.youtube.com/watch?v=QEF7CMrzznE)
+
+### Vlastní práce autora
+
+- **Kognitivní neuro‑architektura: Mozek jako geometrický procesor** – Ground Truth Core Academic Artifact (plná akademická verze)
+
+- **Sousek\_kompresni\_realismu\_v1.1.json** – Formalizace epistemického rámce kompresního realismu
+
+- **Od Kompresního Realismu k Biologické Neuro‑Architektuře.md** – Vývojová linie konceptu
+
+- **EPISTEMICKE-PRAVIDLA-AGENTNI-PRACE.md** – Aplikační pravidla pro agentní práci
