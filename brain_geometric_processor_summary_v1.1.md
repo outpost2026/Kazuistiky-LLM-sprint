@@ -1,8 +1,8 @@
-# Brain as a Geometric Processor – Narrative Overview v1.1 (Bilingual Document)
+### Brain as a Geometric Processor – Narrative Overview v1.1 (Bilingual Document)
 
 ---
 
-## 📘 Česká verze – Proč váš mozek není počítač, ale geometrické GPU
+# 📘 Proč váš mozek není počítač, ale geometrické GPU
 
 **Autor:** Ondřej Soušek // SYSTEQ **Verze:** 1.1‑Narrative‑Kernel
 
