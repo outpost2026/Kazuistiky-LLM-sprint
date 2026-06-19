@@ -30,7 +30,8 @@ Když Tomas Mikolov vyvíjel Word2Vec, nekopíroval biologii. Vytvořil matemati
 | Kortikální mikrosloupce (topografie) | High‑dimensional embeddings |
 | Hebbiánské učení | Distribuční hypotéza |
 
-Synaptická váha ve vašem mozku je fyzikální veličina – koncentrace neurotransmiterů, počet receptorů. V umělé síti je to číslo v matici. **Stejná informace, jiné médium.** Biologie objevila geometrické zpracování informace dávno před křemíkem.
+Synaptická váha ve vašem mozku je fyzikální veličina – koncentrace neurotransmiterů, počet receptorů. V umělé síti je to číslo v matici. **Stejná informace, jiné médium, nebo přesněji: analogická informace, jiný formát zápisu**
+Takže, biologie objevila geometrické zpracování informace dávno před křemíkem. A my se nyní snažíme tuto evoluční schopnost přenést do digitální podoby. A velmi úspěšně.
 
 ### Proč občas ztichnete uprostřed věty – sémantická pauza
 
@@ -149,3 +150,6 @@ Machines must stop learning static representations of the world. We need archite
 Truth and intelligence are not stored in data. They live in the elegance and density of their compression.
 
 The brain as a geometric processor is not a metaphor. It is an **operational reality** – and the key to the next leap in AI.
+
+---
+Zdroje: autor vychází zejména z prací Tomáše Mikolova, dekonstrukcí jeho metodiky (https://www.nadaceneuron.cz/person/tomas-mikolov) & vlastních prací
