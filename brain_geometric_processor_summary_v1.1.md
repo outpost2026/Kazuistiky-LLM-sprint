@@ -26,7 +26,7 @@ A tady přichází ten nejzajímavější objev: **umělé neuronové sítě dě
 
 ### Biologie a křemík – stejný princip, jiný substrát
 
-Když Tomas Mikolov vyvíjel Word2Vec, nekopíroval biologii. Vytvořil matematický model, který – jak se ukázalo – věrně odráží to, co dělá mozková kůra:
+Když Tomáš Mikolov vyvíjel Word2Vec, nekopíroval biologii. Vytvořil matematický model, který – jak se ukázalo – věrně odráží to, co dělá mozková kůra:
 
 | Biologický mozek | Umělá neuronová síť |
 |------------------|---------------------|
@@ -53,7 +53,7 @@ Správně. Přesně. Ta vteřina ticha nebyla váhání. Byl to **výpočet** �
 
 Tomu říkám **sémantická pauza** – a je to nejviditelnější důkaz, že mozek skutečně pracuje jako geometrický procesor.
 
-### Proč ChatGPT nikdy nebude mít intuici – a co s tím
+### Proč ChatGPT zatím nemá intuici – a co s tím
 
 Tady je to, co odděluje dnešní AI od lidské kognice:
 
