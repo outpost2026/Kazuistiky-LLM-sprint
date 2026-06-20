@@ -56,13 +56,13 @@ Oba mají data. Oba slyší totéž. Oba správně sémanticky zasazují píseň
        │  
        ▼  
  ┌── Nadřazený Manifold: "90s Grunge / MTV Era" ──────────┐  
- │                                                         │  
- │  Aktivované sousední vektory:                           │  
- │   • \[Nirvana\] – silný atraktor, blízký soused            │  
- │   • \[MTV klip / pinzeta / červené mraky\] – vizuální emb. │  
- │                                                         │  
- │  Cílový uzel:                                            │  
- │   • \[❌ Soundgarden\] – systém krouží, nepropadne se      │  
+ │                                                        │  
+ │  Aktivované sousední vektory:                          │  
+ │   • \[Nirvana\] – silný atraktor, blízký soused        │  
+ │   • \[MTV klip / pinzeta / červené mraky\] – vizuální. │  
+ │                                                        │  
+ │  Cílový uzel:                                          │  
+ │   • \[❌ Soundgarden\] – systém krouží, nepropadne se  │  
  └─────────────────────────────────────────────────────────┘
 ```
 
