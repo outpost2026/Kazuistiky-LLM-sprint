@@ -50,17 +50,17 @@ Představte si dvě reakce na tytéž první tóny *Black Hole Sun*:
 Oba mají data. Obojí slyší totéž. Obojí správně sémanticky zasazují píseň do širšího kontextu. Rozdíl je v **lokální geometrické konvergenci**: Subjekt A okamžitě sklouzl do hlubokého, dobře definovaného atraktoru. Subjekt B navigoval do správné čtvrti, ale nedokáže dokončit poslední metr.
 
 ```
-\\\\\\\[Vstupní signál\\\\\\\]      
+[Vstupní signál]      
        │      
        ▼      
  ┌── Nadřazený Manifold: "90s Grunge / MTV Era" ──────────┐      
  │                                                         │      
  │  Aktivované sousední vektory:                           │      
- │   • \\\\\\\[Nirvana\\\\\\\] – silný atraktor, blízký soused            │      
- │   • \\\\\\\[MTV klip / pinzeta / červené mraky\\\\\\\] – vizuální emb. │      
+ │   • [Nirvana] – silný atraktor, blízký soused            │      
+ │   • [MTV klip / pinzeta / červené mraky] – vizuální emb. │      
  │                                                         │      
  │  Cílový uzel:                                            │      
- │   • \\\\\\\[❌ Soundgarden\\\\\\\] – systém krouží, nepropadne se      │      
+ │   • [❌ Soundgarden] – systém krouží, nepropadne se      │      
  └─────────────────────────────────────────────────────────┘
 ```
 
@@ -200,7 +200,7 @@ V ML ekosystému má disentanglement konkrétní protějšky: *β-VAE* (Higgins 
 
 ```
 Režim 1                  Režim 2                  Režim 3      
-\\\\\\\[Ostrý gradient\\\\\\\]    →    \\\\\\\[Orbitální průzkum\\\\\\\]  →   \\\\\\\[Topologický disentanglement\\\\\\\]      
+[Ostrý gradient]    →    [Orbitální průzkum]  →   [Topologický disentanglement]      
 Nízká entropie           Střední entropie           Vysoká entropie      
 Rychlé, nízké náklady    Střední, vysoké náklady     Pomalé, masivní náklady      
 Mozek + LLM              Mozek + rané LLM           Jen mozek
@@ -249,16 +249,16 @@ Tím se z dvoublokového návrhu stává plná architektura se třemi komponenty
 ```
 ┌─────────────────────────────────────────────────────────────┐      
 │                                                             │      
-│   \\\\\\\[JÁDRO: stabilní inference\\\\\\\]                               │      
+│   [JÁDRO: stabilní inference]                               │      
 │         ▲                                                   │      
 │         │ konsolidační přepis (offline, pomalý, EWC)         │      
 │         │                                                   │      
-│   \\\\\\\[PERIFERIE: plastická adaptace\\\\\\\]                           │      
+│   [PERIFERIE: plastická adaptace]                           │      
 │         ▲                                                   │      
 │         │ neuromodulační gating (kdy/kde se periferie        │      
 │         │ aktivuje, top-down pozornost jako gain control)   │      
 │         │                                                   │      
-│   \\\\\\\[VSTUP: nová data, inference stopy\\\\\\\]                       │      
+│   [VSTUP: nová data, inference stopy]                       │      
 │                                                             │      
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -337,17 +337,17 @@ Imagine two reactions to the same opening bars of *Black Hole Sun*:
 Both have the data. Both hear the same thing. Both correctly place the song in its broader semantic context. The difference is in **local geometric convergence**: Subject A instantly slid into a deep, well‑defined attractor. Subject B navigated to the right neighborhood, but cannot complete the last meter.
 
 ```
-\\\\\\\[Input signal\\\\\\\]      
+[Input signal]      
        │      
        ▼      
  ┌── Superset Manifold: "90s Grunge / MTV Era" ──────────┐      
  │                                                         │      
  │  Activated neighbor vectors:                            │      
- │   • \\\\\\\[Nirvana\\\\\\\] – strong attractor, close neighbor        │      
- │   • \\\\\\\[MTV clip / tweezers / red clouds\\\\\\\] – visual embed.  │      
+ │   • [Nirvana] – strong attractor, close neighbor        │      
+ │   • [MTV clip / tweezers / red clouds] – visual embed.  │      
  │                                                         │      
  │  Target node:                                           │      
- │   • \\\\\\\[❌ Soundgarden\\\\\\\] – system orbits, cannot drop in    │      
+ │   • [❌ Soundgarden] – system orbits, cannot drop in    │      
  └─────────────────────────────────────────────────────────┘
 ```
 
@@ -488,7 +488,7 @@ In the ML ecosystem, disentanglement has concrete counterparts: *β-VAE* (Higgin
 
 ```
 Mode 1                  Mode 2                  Mode 3      
-\\\\\\\[Sharp descent\\\\\\\]    →    \\\\\\\[Orbital search\\\\\\\]    →   \\\\\\\[Topological disentanglement\\\\\\\]      
+[Sharp descent]    →    [Orbital search]    →   [Topological disentanglement]      
 Low entropy             Medium entropy            High entropy      
 Fast, low cost          Medium, high cost         Slow, massive cost      
 Brain + LLM             Brain + early LLM         Brain only
@@ -537,17 +537,17 @@ This turns the two‑block proposal into a complete architecture with three comp
 ```
 ┌─────────────────────────────────────────────────────────────┐      
 │                                                             │      
-│   \\\\\\\[CORE: stable inference\\\\\\\]                                  │      
+│   [CORE: stable inference]                                  │      
 │         ▲                                                   │      
 │         │ consolidation rewrite (offline, slow, EWC)         │      
 │         │                                                   │      
-│   \\\\\\\[PERIPHERY: plastic adaptation\\\\\\\]                           │      
+│   [PERIPHERY: plastic adaptation]                           │      
 │         ▲                                                   │      
 │         │ neuromodulatory gating (when/where the            │      
 │         │ periphery activates, top‑down attention           │      
 │         │ as gain control)                                  │      
 │         │                                                   │      
-│   \\\\\\\[INPUT: new data, inference traces\\\\\\\]                       │      
+│   [INPUT: new data, inference traces]                       │      
 │                                                             │      
 └─────────────────────────────────────────────────────────────┘
 ```
