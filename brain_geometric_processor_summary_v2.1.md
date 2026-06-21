@@ -2,7 +2,7 @@
 
 # 📘 Mozek jako geometrické GPU: Od komprese k navigaci
 
-**Autor:** Ondřej Soušek, Bakalářská práce
+**Autor:** Ondřej Soušek & Neuronální síť 
 
 Včera v rádiu hráli *Black Hole Sun*. Během dvou vteřin jste si vybavili jméno kapely, zpěváka i rok vydání. Nebo jste naopak celou minutu bloudili – „to přece… jak ten klip, ta holčička s pinzetou… jako Nirvana, ale… sakra, jak to jen…"
 
