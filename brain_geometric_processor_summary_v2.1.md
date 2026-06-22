@@ -26,7 +26,7 @@ Když Tomáš Mikolov vyvíjel *Word2Vec*, nekopíroval biologii. Vytvořil mate
 
 | Biologický mozek | Umělá neuronová síť |
 | - | - |
-| Synaptická účinnost (neurotransmitery) | Váha `W\\\\\\\_ij` v matici |
+| Synaptická účinnost (neurotransmitery) | Váha `W_ij` v matici |
 | Kortikální mikrosloupce (topografie) | High‑dimensional embeddings |
 | Hebbiánské učení | Distribuční hypotéza |
 
