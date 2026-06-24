@@ -1,22 +1,12 @@
 ---
-title: "Deterministic CNC Format Intelligence — Methodology & Validation Framework"
+title: "Deterministic CAM VCF Format Intelligence — Methodology & Validation Framework"
 author: Ondřej Soušek
 version: 1.0
 date: 2026-06
-classification: CONFIDENTIAL — B2B partners & auditors
 repository: outpost2026/Kazuistiky-LLM-sprint
 ---
 
-# Deterministic CNC Format Intelligence
-
-## Methodology & Validation Framework
-
-**Autor:** Ondřej Soušek — SYSTEQ  
-**Verze:** 1.0  
-**Datum:** červen 2026  
-**Klasifikace:** CONFIDENTIAL — pro B2B partnery a auditory  
-
-
+# VCF files RE inteligence
 
 ## Obsah
 
