@@ -29,6 +29,8 @@ Je popsat metody – konkrétně které přístupy fungovaly, které selhaly a c
 
 7. Jak vypadá střet s trhem — na prvním IT pohovoru v životě (případ člověka, který během přibližně 45 aktivních dní přešel z manuální profese k nabídce placeného testu od e-commerce firmy) **[Kariérní přechody v éře saturace AI (2026)](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/main/karierni_prechody_v_ere_saturace_AI_rok_2026_revidovano_v2.md)**
 
+8. **Metodologický rámec pro B2B validaci** — Jak dokumentovat metodiku reverse inženýrství bez odhalení IP. 6-fázový proces, epistemický rámec (CLASS_A–D), golden master princip, detekční taxonomie 23 defektů ve 3 třídách, ROI kalkulace. Určeno pro B2B partnery, auditory a technologické partnery. **[Methodology & Validation Framework](https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/main/METHODOLOGY_VALIDATION_FRAMEWORK.md)**
+
 
 ## Co bylo dosaženo
 
