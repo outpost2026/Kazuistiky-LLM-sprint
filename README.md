@@ -1,5 +1,5 @@
 <div align="left">
-  <a href="nova_cesta_k_en_verzi_readme_en.md">
+  <a href="https://github.com/outpost2026/Kazuistiky-LLM-sprint/blob/main/readme_en.md">
     <img src="https://flagcdn.com/24x18/gb.png" alt="English" height="18"> English
   </a>
 </div>
