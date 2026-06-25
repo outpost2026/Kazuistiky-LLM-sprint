@@ -1,3 +1,9 @@
+<div align="left">
+  <a href="nova_cesta_k_en_verzi_readme_en.md">
+    <img src="https://flagcdn.com/24x18/gb.png" alt="English" height="18"> English
+  </a>
+</div>
+
 # Od nuly k produkci: LLM augmentovaný vývojový sprint
 
 **Případová studie v AI augmentovaném učení**
