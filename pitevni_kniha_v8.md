@@ -1168,7 +1168,142 @@ Aktualizace kognitivní mapy. Tato session byla zlomová – přešli jsme od sp
 
 \---
 
-\*pitevni\_kniha\_v8.md — aktualizováno 2026-03-17 — záznamy 001–074\*
+\## ZÁZNAM 075: Duplicitní pracovní adresáře (Directory Split Debt)
+
+\* \*\*Symptom:\*\* `_github/` a `Github/` oba obsahovaly scrapers, metadata, konfigurace a dokumentaci. Obsah se rozcházel (např. `CONTEXT_REPOS.md` v `_github/` nebyl v `Github/`), nebyl single source of truth. Při otázce "kde je aktuální verze" nebyla odpověď.
+
+\* \*\*Příčina:\*\* Organický růst — `Github/` vznikl jako mirror GitHub API, `_github/` jako lokální dev složka s B2B-Knowledge-Base. Postupně oba absorbovaly scrapers, dokumentaci a konfiguraci bez explicitního přiřazení primární role.
+
+\* \*\*Fyzikální realita:\*\* Dvě složky se stejným účelem = každá je neúplná kopie. Žádný synchronizační mechanismus, žádný manifest, žádné rozhodnutí "toto je master". Divergence je lineární v čase — čím déle obě existují, tím horší je jejich sjednocení.
+
+\* \*\*Korekce (Pravidlo — Single Dev Root):\*\*
+  1. `_github/` je primární development adresář — veškerý kód, scrapers, KB, konfigurace
+  2. `GCP/` je pouze GCP infrastructure (Meteo, gcp_miner_project) — žádný kód, žádné dokumenty přesahující GCP kontext
+  3. Při vytvoření nové dev složky: (a) explicitně rozhodnout která je primární, (b) starou archivovat (`_ARCHIVE`) nebo smazat, (c) zapsat rozhodnutí do `CONTEXT_REPOS.md`
+  4. Periodická kontrola: `grep -c "github" .ai_state.json` — detekce vzniku nové duplicitní složky
+
+\* \*\*Viz také:\*\* ZÁZNAM 013 (config divergence mezi prostředími), ZÁZNAM 043 (chybějící soubor v deploymentu — stejný pattern "předpoklad že soubor existuje jinde").
+
+\---
+
+\## ZÁZNAM 076: Pevně zakódované lokální cesty v přenositelných skriptech
+
+\* \*\*Symptom:\*\* 3 ze 4 scraperů obsahovaly hardcoded cestu `Skripty_local/...` (např. `fast_v3.py:228`, `jobsfastv2.py:53`, `pracefastv1.py:51`). Po přesunu z `GCP/_archive/Skripty_local/Skripty_prace/` do `_github/scrapers/` všechny přestaly fungovat — `FileNotFoundError` při zápisu CSV výstupu.
+
+\* \*\*Příčina:\*\* Vývojářské pohodlí v době psaní skriptu. Cesta `C:\Users\PC\Documents\Repozitar_Dev\Skripty_local\...` fungovala na jediném stroji v jediné adresářové struktuře. Žádná abstrakce pro relativní cesty.
+
+\* \*\*Fyzikální realita:\*\* Absolutní cesta k lokální složce je časovaná bomba při jakékoli reorganizaci. Skript, který funguje jen na jednom stroji pod jedním uživatelem, není přenositelný — je to lokalizovaná konfigurace maskovaná jako kód.
+
+\* \*\*Korekce (Pravidlo — Path Abstraction):\*\*
+  1. Všechny cesty uvnitř projektu: `Path(__file__).parent` — relativní ke skriptu, ne k uživateli
+  2. Cesty mimo projekt (Desktop, home): `Path.home()` nebo `os.environ.get('USERPROFILE')` — nikdy string literal
+  3. Review checklist: grep `C:\\` a `C:/` před každým mergem — 0 výskytů v kódu
+  4. Výjimka: pouze `.bat`/`.sh` wrapper skripty na desktopu můžou mít absolutní cestu (a musí být dokumentovány jako závislost)
+
+\* \*\*Viz také:\*\* ZÁZNAM 025 (zápis mimo `/tmp/` v Cloud Run — stejný pattern "cesta funguje lokálně, selže v produkci").
+
+\---
+
+\## ZÁZNAM 077: Tiché začlenění mrtvých URL (Missing URL Health-Check)
+
+\* \*\*Symptom:\*\* Výstup scraperů (CSV i MD) obsahoval nefunkční URL — inzeráty které expirovaly ale zůstaly v HTML stránce jako dead odkazy. Po přidání `is_url_alive()` (HEAD 200 check) bylo automaticky odstraněno 33 mrtvých entry z jobs.cz výstupu v prvním běhu.
+
+\* \*\*Příčina:\*\* Scraper extrahoval URL z HTML a okamžitě je vkládal do výstupu. Předpoklad: "když je URL na stránce, je platná". Žádný verifikační krok mezi extrakcí a zápisem.
+
+\* \*\*Fyzikální realita:\*\* Inzeráty mají expiraci. HTML stránka často zobrazuje dead inzeráty (SEO, user experience — "uživatel vidí že inzerát skončil"). Scraper bez health-checku produkuje output s tichým selháním: data vypadají validně, ale URL nefungují.
+
+\* \*\*Korekce (Pravidlo — Output Integrity):\*\*
+  1. Každý scraper musí mít `is_url_alive(url, timeout=5)` — HEAD request, HTTP 200 = platný
+  2. Dead URL: (a) nezařadit do CSV/MD výstupu, (b) zalogovat count na konci scraperu (`"Removed X expired entries"`)
+  3. Health-check běží na extrahovaných URL, ne na source stránce — source může být validní i když jednotlivé inzeráty jsou dead
+  4. Cache: opakované volání na stejnou URL používá cached result (prevence zbytečného zatížení target serveru)
+
+\* \*\*Viz také:\*\* ZÁZNAM 024 (state integrity — GCS master), ZÁZNAM 044 (upload před dokončením — stejný pattern "output nereflektuje realitu").
+
+\---
+
+\## ZÁZNAM 078: Rotace HTML selectorů — Standalone Test Suite jako safety net
+
+\* \*\*Symptom:\*\* Selectory v scraperech se stávaly neplatné při změně UI cílových webů bez jakéhokoli varování. Chyba byla detekována až při běhu scraper pipeline — a to pouze pokud selhal `find()`, ne pokud vrátil prázdnou množinu (silent fail).
+
+\* \*\*Příčina:\*\* Validita selectorů byla testována výhradně jako vedlejší produkt běhu scraperu. Neexistoval nástroj pro rychlé ověření "fungují selektory ještě?" bez spuštění celé pipeline (download, dedup, format, upload).
+
+\* \*\*Fyzikální realita:\*\* UI webů se mění nezávisle na scraper deploy cyklu. Selector rot (změna CSS třídy, restrukturalizace DOM) je otázka "kdy", ne "jestli". Bez standalone testu je MTTR = čas do dalšího selhání pipeline + čas debugování, místo "0 sekund — test to hlásil už včera v noci".
+
+\* \*\*Korekce (Pravidlo — Selector Sentinel):\*\*
+  1. Každý portal musí mít standalone test selectorů — nezávislý na scraper kódu
+  2. Test: stáhnout HTML, zkusit `.find()`/`.select()` na všech selectorech, reportovat PASS/FAIL s počtem nalezených elementů
+  3. Exit code: 0 = všechny PASS, 1 = jakýkoli FAIL (lze použít v CI gating)
+  4. `verify_selectors.py` structure: jeden `test_portal(url, selectors)` volaný pro každý portal, výsledky do JSON reportu i stdout
+  5. Frekvence: schedule mód (noční běh) + manuální mód před deploym scraperu
+
+\* \*\*Viz také:\*\* ZÁZNAM 066 (silent fail — stejný pattern "chyba není vidět dokud není pozdě").
+
+\---
+
+\## ZÁZNAM 079: Inkompatibilita headless browserů s bot-protected targets
+
+\* \*\*Symptom:\*\* `prace.cz` blokoval Patchright/Playwright headless Chromium — timeout po 30s, žádný obsah. `requests.get()` se standardním User-Agent prošel okamžitě a vrátil kompletní HTML.
+
+\* \*\*Příčina:\*\* `prace.cz` používá anti-bot detekci která rozpozná headless browser signature (nepřítomnost `navigator.webdriver = false`, specifické WebGL parametry, chybějící Chrome extensions). Statický HTTP GET (`requests + BeautifulSoup`) není detekován, protože neemuluje browser — je nerozlišitelný od běžného HTTP klienta.
+
+\* \*\*Fyzikální realita:\*\* Playwright není univerzální řešení. Pro weby které servírují obsah v HTML rovnou (žádný JS render, žádné SPA) je headless browser zbytečný režijní náklad a v některých případech kontraproduktivní (vyšší detekční surface).
+
+\* \*\*Korekce (Pravidlo — Tool Selection Ladder):\*\*
+  1. **První volba:** `requests + BeautifulSoup` — testovat jako první. Pokud funguje → použít. Výhody: rychlost, jednoduchost, nejnižší detekční surface.
+  2. **Druhá volba:** `requests + html.parser` nebo `lxml` — pokud BS4 nestačí. Stále statický HTTP, žádný browser overhead.
+  3. **Třetí volba:** Patchright/Playwright — pouze pokud target vyžaduje JS rendering, SPA architekturu, nebo Dynamic content loading.
+  4. **Testovací matrix před implementací:** requests + BS4 → Patchright → Playwright. Každý level testovat samostatně, ne všechny najednou.
+  5. **Detekce blokování:** Pokud headless browser timeoutuje, zkusit requests.get() — pokud projde, target blokuje browser, ne IP.
+
+\* \*\*Viz také:\*\* ZÁZNAM 034 (API rate limiting — různé targety, stejný pattern "nástroj selhává z důvodů které nesouvisí s kódem").
+
+\---
+
+\## ZÁZNAM 080: Batch file maintenance debt (Shell wrapper brittleness)
+
+\* \*\*Symptom:\*\* 4 desktop `.bat` files obsahovaly absolutní cestu `C:\Users\PC\Documents\Repozitar_Dev\Skripty_local\Scripty_prace\...`. Po přesunu scraper složky do `_github/scrapers/` všechny přestaly fungovat — `FileNotFoundError` při spuštění.
+
+\* \*\*Příčina:\*\* `.bat` files byly psány jako "jednorázový nástroj pro rychlé spuštění". Nikdo nepředpokládal reorganizaci adresářové struktury. Cesta byla považována za stabilní konstantu.
+
+\* \*\*Fyzikální realita:\*\* Každá absolutní cesta ve wrapper skriptu je závislost. Při změně adresářové struktury se musí změnit všechny wrapper skripty — a pokud nejsou ve stejném repozitáři (`.bat` na desktopu vs kód v `_github/`), není možné je verzovat společně.
+
+\* \*\*Korekce (Pravidlo — Wrapper skripty jako tenká vrstva):\*\*
+  1. `.bat` soubor na desktopu = pouze `cd /d C:\...\_github\scrapers\PORTAL && python scraper.py`. Žádná další logika.
+  2. Cestu k projektu mít v jedné proměnné na začátku `.bat` — ne inline v každém volání.
+  3. Pokud se mění adresářová struktura, musí se aktualizovat i wrapper skripty — zahrnout do checklistu reorganizace.
+  4. Alternativa: wrapper skripty verzovat v repozitáři a na desktopu mít pouze symlink nebo zástupce.
+
+\* \*\*Viz také:\*\* ZÁZNAM 076 (hardcoded paths v kódu — stejný pattern, jiná vrstva).
+
+\---
+
+\## ZÁZNAM 081: Architektonická korekce — `_github/` jako Single Dev Root
+
+\* \*\*Kontext:\*\* Po eliminaci `Github/` (ZÁZNAM 075) a přesunu scraperů (ZÁZNAM 076) byla provedena architektonická korekce: `_github/` je nový primární development adresář, `GCP/` je pouze GCP infrastructure, žádný kód mimo `_github/`.
+
+\* \*\*Fyzikální realita — Nová architektura:\*\*
+
+| Adresář | Role | Obsah |
+|---|---|---|
+| `_github/` | Primární dev prostředí | scrapers, KB, kazuistiky, mirror, dev tools |
+| `_github/scrapers/` | Všechny job scrapery | bazos, jobs, pracecz, nyx |
+| `_github/B2B-Knowledge-Base/` | Znalostní báze | strategie, metodiky, analýzy, provoz |
+| `GCP/` | GCP infrastruktura | Meteo_scraper_gcp_prod, gcp_miner_project |
+| (smazáno) `Github/` | Historický — eliminován | 7 repos, docs → KB, Mirror → `_github/github_mirror/` |
+| (smazáno) `Skripty_local/` | Historický — eliminován | scrapers → `_github/scrapers/` |
+
+\* \*\*Pravidlo — Dev Root Invariant:\*\*
+  1. `_github/` = jediné místo pro veškerý kód, dokumentaci, konfiguraci a nástroje
+  2. `GCP/` = pouze konfigurace a deployment artifacty pro GCP infrastrukturu (žádný kód scraperů, žádná KB)
+  3. Každý nový projekt musí mít explicitní přiřazení do jednoho z těchto dvou adresářů
+  4. Žádná třetí dev složka — pokud někdo vytvoří `Github/` nebo `Scripts/` nebo `Dev/` → alert
+
+\* \*\*Viz také:\*\* ZÁZNAM 075 (directory split debt), ZÁZNAM 076 (hardcoded paths).
+
+\---
+
+\*pitevni\_kniha\_v8.md — aktualizováno 2026-07-13 — záznamy 001–081\*
 
 
 
