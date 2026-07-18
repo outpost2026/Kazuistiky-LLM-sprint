@@ -1303,7 +1303,73 @@ Aktualizace kognitivní mapy. Tato session byla zlomová – přešli jsme od sp
 
 \---
 
-\*pitevni\_kniha\_v8.md — aktualizováno 2026-07-13 — záznamy 001–081\*
+\---
+
+## ZÁZNAM 082: Chrome ≥127 App-Bound Cookie Encryption (CDP/Selenium deprecation)
+
+* **Symptom:** CDP-based cookie extraction (Network.getCookies) vracela prázdnou sadu nebo zašifrované hodnoty pro `.nyx.cz` cookies po upgradu Chromu na ≥127. Selenium s `--disable-blink-features=AutomationControlled` nedokázalo extrahovat plaintext cookies ani při správné autentizaci.
+* **Příčina:** Chrome ≥127 zavedl app-bound encryption (v20 key ring) pro cookie databázi. CDP endpoint `Network.getCookies` vrací hodnoty až po dešifrování, které vyžaduje přístup k OS keychain — ale pouze pokud je browser spuštěn ve stejném uživatelském kontextu a se stejnou aplikací (Chrome binary). Selenium/ChromeDriver/CDP klienti, kteří nejsou Chrome, nemají přístup k dešifrovacímu klíči.
+* **Fyzikální realita:** Cookies nejsou jen textové soubory — od Chrome ≥127 jsou to OS-level chráněné binární objekty. Použití headless Chromium přes Selenium nebo přímé CDP volání pro extrakci cookies je deprecated pattern pro weby s přihlášením.
+* **Korekce (Pravidlo):**
+  1. **Playwright `launch_persistent_context()`** — Playwright je první-class Chrome klient a má přístup k dešifrovaným cookies přes `context.cookies()` (CDP vrstva, ale interní).
+  2. **Persistentní profil** — `user_data_dir` parametr ukládá session cookies mezi restarty. Login jednou, používat stále.
+  3. **Cache vrstva** — ~/.nyx_cookies_cache s 24h TTL pro rychlý path (bez browseru).
+  4. **Žádný Selenium** — pro nyx.cz je Playwright jediná funkční cesta k auth cookies.
+* **Viz také:** ZÁZNAM 079 (headless browser anti-detection — stejný pattern "nástroj přestane fungovat kvůli změně prohlížeče").
+
+## ZÁZNAM 083: Login page reload loop during user auth
+
+* **Symptom:** Při prvním spuštění Nyx scraperu se otevřelo headed browser okno s login stránkou, ale stránka se reloadovala každé 2–3 sekundy. Uživatel nestihl vyplnit přihlašovací údaje — Google OAuth redirect ani username/password formulář se nestihl načíst.
+* **Příčina:** Polling smyčka volala `page.goto("https://nyx.cz")` v každé iteraci (každé 2 s), aby zkontrolovala, zda je uživatel přihlášen. `page.goto()` fyzicky reloaduje stránku — každé 2 s došlo k novému HTTP requestu, DOM resetu a zmizení rozpracovaného formuláře.
+* **Fyzikální realita:** `page.goto()` není read-only operace — je to destruktivní navigace. Pro kontrolu stavu přihlášení není nutné reloadovat stránku, stačí zkontrolovat DOM aktuální stránky (`query_selector('form[action="/login"]')`).
+* **Korekce (Pravidlo):**
+  1. `_has_login_form(page)` — zkontroluje DOM aktuální stránky BEZ navigace (žádný reload)
+  2. První check po **30 sekundách** — dostatek času na vyplnění login formuláře
+  3. Další checky každých 10 sekund
+  4. Max timeout: 5 minut
+  5. Kontrola: `_check_logged_in(page)` použít pouze mimo login smyčku (např. při headless re-loginu)
+* **Viz také:** ZÁZNAM 002 (desynchronizace exekuce — stejný pattern "interakce s uživatelem je přerušena skriptem").
+
+## ZÁZNAM 084: TTL cache pro auth cookies (výkonnostní optimalizace)
+
+* **Symptom:** Každý běh Nyx scraperu spouštěl Playwright browser (headless nebo headed) jen pro získání cookies, i když cookies byly stále platné. Start Playwright + načtení profilu trvalo ~5–10 s navíc oproti samotnému scrapingu (~9 s).
+* **Příčina:** Žádná cache vrstva mezi scraperem a Playwright autentizací. Každý `build_nyx_session()` volal `_try_persistent_context()`, který vždy startoval Playwright.
+* **Fyzikální realita:** Playwright startup není zdarma — launch_persistent_context, load profilu, kontrola session. Pro auth cookies, které mají životnost dny až týdny, je zbytečné spouštět browser při každém běhu scraperu.
+* **Korekce (Pravidlo):**
+  1. `_cache_lookup()` — načte cookies z `~/.nyx_cookies_cache/cookies.json`
+  2. TTL: 24 hodin (default)
+  3. `_cache_store(cookies)` — po úspěšné autentizaci uložit
+  4. Priorita: cache → Playwright → anonymous fallback
+  5. Celkový čas Nyx scraperu při cachable cookies: ~6–10 s (bez Playwright startupu)
+* **Viz také:** ZÁZNAM 021 (force run — ověření že systém funguje bez zásahu).
+
+## ZÁZNAM 085: Pipeline-wide selector health monitoring
+
+* **Symptom:** HTML struktura webů se mění nezávisle na scraper deploy cyklu. Bazos změnil CSS třídy (`datum` → `span.velikost10`, `cena` → `inzeratycena`) — scraper vracel prázdné výsledky bez jakéhokoliv varování.
+* **Příčina:** Validita selectorů byla testována výhradně jako vedlejší produkt běhu scraperu. Neexistoval nástroj pro rychlé ověření "fungují selektory ještě?" bez spuštění celé pipeline.
+* **Fyzikální realita:** UI webů se mění každé 2–3 měsíce. Bez standalone monitoringu je MTTR = čas do dalšího selhání pipeline + debugování = hodiny až dny.
+* **Korekce (Pravidlo):**
+  1. `verify_selectors.py` — standalone test všech 4 portálů, nezávislý na scraper kódu
+  2. Každý portal: stáhnout HTML → otestovat všechny selectory → report PASS/FAIL s počtem elementů
+  3. `selector_health.json` — timestampovaný JSON report v repo root + kopie do B2B-KB
+  4. Exit code: 0 = all PASS, 1 = any FAIL (CI gating ready)
+  5. Výstup: HTTP status, page title, per-selector count + sample, celkový verdikt
+* **Viz také:** ZÁZNAM 078 (selector sentinel — stejný pattern, rozšířen na celou pipeline).
+
+## ZÁZNAM 086: CSV BOM encoding incompatibility + config konsolidace
+
+* **Symptom:** `csv.DictReader` s `encoding="utf-8"` failoval na prvním sloupci CSV souborů vytvořených z Pandas (obsahuje BOM — `\ufeff` prefix). Tři identické `topics.csv` soubory (bazos, jobs, pracecz) měly MD5 shodný hash, ale každý scraper používal svou kopii.
+* **Příčina:** Pandas `to_csv()` defaultuje na `utf-8-sig` (UTF-8 with BOM). Python `csv.DictReader` s `utf-8` vidí BOM jako součást prvního klíče → `\ufeffkeyword` místo `keyword` → klíč nenalezen při vyhledávání.
+* **Fyzikální realita:** BOM je Microsoft konvence pro identifikaci UTF-8 souborů. Pandas ji přidává automaticky. `csv.DictReader` s `utf-8` ji neodstraní. Tři soubory se stejným obsahem = maintenance debt (změna jedné kopie neprovedena u ostatních).
+* **Korekce (Pravidlo):**
+  1. `load_csv()` → `encoding="utf-8-sig"` (Python 3 automaticky odstraní BOM)
+  2. Konsolidace: jediný `common/topics.csv` (94 keywords), smazány duplicity v `bazos/`, `jobs/`, `pracecz/`
+  3. MD5 verifikace před smazáním: všechny 3 soubory identické (potvrzeno)
+  4. Master generator: `pd.read_csv(encoding='utf-8-sig')` pro konzistenci
+
+\---
+
+\*pitevni\_kniha\_v8.md — aktualizováno 2026-07-18 — záznamy 001–086\*
 
 
 
